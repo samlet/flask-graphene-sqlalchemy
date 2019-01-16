@@ -14,6 +14,9 @@ logging.basicConfig(
 
 
 if __name__ == '__main__':
+    #+ remove all tables
+    base.Base.metadata.drop_all(base.engine)
+
     log.info('Create database {}'.format(base.db_name))
     base.Base.metadata.create_all(base.engine)
 

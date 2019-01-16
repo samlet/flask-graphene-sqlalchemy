@@ -42,8 +42,8 @@ class CreatePlanet(graphene.Mutation):
 
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
-        data['created'] = datetime.utcnow()
-        data['edited'] = datetime.utcnow()
+        data['created'] = str(datetime.utcnow())
+        data['edited'] = str(datetime.utcnow())
 
         planet = ModelPlanet(**data)
         db_session.add(planet)
@@ -66,7 +66,7 @@ class UpdatePlanet(graphene.Mutation):
 
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
-        data['edited'] = datetime.utcnow()
+        data['edited'] = str(datetime.utcnow())
 
         planet = db_session.query(ModelPlanet).filter_by(id=data['id'])
         planet.update(data)

@@ -1,7 +1,8 @@
 flask==0.12.3
 flask-graphql==1.4.1
-graphene==2.0.0
-graphene-sqlalchemy==2.0.0
-nose2==0.7.4
-requests==2.20.0
-sqlalchemy==1.1.14
+graphene==2.1.3
+graphene[sqlalchemy]
+cockroachdb
+nose2==0.8.0
+requests==2.21.0
+SQLAlchemy~=1.2

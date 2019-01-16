@@ -42,8 +42,8 @@ class CreatePerson(graphene.Mutation):
 
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
-        data['created'] = datetime.utcnow()
-        data['edited'] = datetime.utcnow()
+        data['created'] = str(datetime.utcnow())
+        data['edited'] = str(datetime.utcnow())
 
         person = ModelPeople(**data)
         db_session.add(person)
@@ -66,7 +66,7 @@ class UpdatePerson(graphene.Mutation):
 
     def mutate(self, info, input):
         data = utils.input_to_dictionary(input)
-        data['edited'] = datetime.utcnow()
+        data['edited'] = str(datetime.utcnow())
 
         person = db_session.query(ModelPeople).filter_by(id=data['id'])
         person.update(data)

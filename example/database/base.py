@@ -4,10 +4,21 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 import os
 
 # Create database engine
-db_name = 'database.db'
-db_path = os.path.join(os.path.dirname(__file__), db_name)
-db_uri = 'sqlite:///{}'.format(db_path)
-engine = create_engine(db_uri, convert_unicode=True)
+# db_name = 'database.db'
+# db_path = os.path.join(os.path.dirname(__file__), db_name)
+# db_uri = 'sqlite:///{}'.format(db_path)
+# engine = create_engine(db_uri, convert_unicode=True)
+
+## + Create database engine: cockroach
+db_name = 'localhost:26257'
+connect_args = {'sslmode': 'disable'}
+
+engine = create_engine(
+    'cockroachdb://maxroach@localhost:26257/bank',
+    connect_args=connect_args,
+    echo=True                   # Log SQL queries to stdout
+)
+## +
 
 # Declarative base model to create database tables and classes
 Base = declarative_base()
