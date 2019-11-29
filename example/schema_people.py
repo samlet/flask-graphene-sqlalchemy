@@ -27,7 +27,7 @@ class People(SQLAlchemyObjectType):
         model = ModelPeople
         interfaces = (graphene.relay.Node,)
 
-
+###
 class CreatePersonInput(graphene.InputObjectType, PeopleAttribute):
     """Arguments to create a person."""
     pass

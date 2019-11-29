@@ -27,7 +27,7 @@ class Planet(SQLAlchemyObjectType):
         model = ModelPlanet
         interfaces = (graphene.relay.Node,)
 
-
+###
 class CreatePlanetInput(graphene.InputObjectType, PlanetAttribute):
     """Arguments to create a planet."""
     pass

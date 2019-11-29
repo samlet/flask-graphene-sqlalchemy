@@ -1,5 +1,5 @@
 from .base import Base
-from .model_people import ModelPeople
+
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
@@ -8,6 +8,8 @@ class ModelPlanet(Base):
     """Planet model."""
 
     __tablename__ = 'planet'
+
+    from .model_people import ModelPeople
 
     id = Column('id', Integer, primary_key=True, doc="Id of the person.")
     name = Column('name', String, doc="Name of the planet.")
